@@ -25,10 +25,10 @@ async def main(client: Client, message: Message):
         except FloodWait as e:
             await asyncio.sleep(e.x)
         return
-    if (message.text == "!start") and (message.from_user.id == (await client.get_me()).id):
+    if (message.text == "#start") and (message.from_user.id == (await client.get_me()).id):
         await message.edit(text=f"Hi, **{(await client.get_me()).first_name}**!\nThis is a Forwarder Userbot by @IndonesiaNegaraLucu", parse_mode="Markdown",
                            disable_web_page_preview=True)
-    elif (message.text == "!help") and (message.from_user.id == (await client.get_me()).id):
+    elif (message.text == "#help") and (message.from_user.id == (await client.get_me()).id):
         await message.edit(
             text=Config.HELP_TEXT,
             parse_mode="Markdown", disable_web_page_preview=True)
@@ -47,7 +47,7 @@ async def main(client: Client, message: Message):
             )
             Config.HEROKU_APP.restart()
             time.sleep(30)
-    elif (message.text == "!kang") and (message.from_user.id == (await client.get_me()).id):
+    elif (message.text == "#kang") and (message.from_user.id == (await client.get_me()).id):
         if len(Config.FORWARD_FROM_CHAT_ID) > 1:
             await message.edit(
                 text="Sorry Sir,\nWe can Kang only one Chat! But you put multiple Chat IDs in `FORWARD_FROM_CHAT_ID` Config!",
